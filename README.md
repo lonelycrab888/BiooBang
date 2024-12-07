@@ -10,8 +10,6 @@ This repository contains codes for BiooBang, which is an advanced biological lan
   - [Get embeddings](#get-embeddings)
   - [CDS denovo generation](#cds-denovo-generation)
       
-  - [Baselines](#baselines)
-  - [Citation](#citation)
 
 ## Installation
 
@@ -69,4 +67,4 @@ python generate_CDS.py --input_path your_path --save_path your_save_path
 Default:
   beam_width = 50
   
-We provided two proteins (GFP and mCherry) as examples for using this demo script. You can set the input_path to [./experiment_data/input.fasta] to reproduce the results in our paper.
+We provided two proteins (GFP and mCherry) as examples for using this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
