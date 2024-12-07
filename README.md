@@ -6,6 +6,7 @@ This repository contains codes for BiooBang, which is an advanced biological lan
 - [BiooBang](#BiooBang-v1)
   - [Installation](#installation)
     - [Create Environment with Conda](#create-environment-with-conda)
+    - [Download Pre-trained Models](#download-pretrained-models)
   - [Get embeddings](#get-embeddings)
   - [CDS denovo generation](#cds-denovo-generation)
       
@@ -26,6 +27,8 @@ Then, activate the "BiooBang" environment.
 ```bash
 conda activate BiooBang
 ```
+### Download Pre-trained Models
+Our pre-trained model could be downloaded from [Google Drive](https://drive.google.com/drive/folders/1Ls5k7hv83BLRTznB4XcegIa2yKkU40Ls?usp=drive_link) and place the `.pdparams` and `.json` files in the `./output/BERT,ERNIE,MOTIF,PROMPT` folder.
 
 ## Get Embeddings
 ```python
@@ -57,3 +60,8 @@ for name,input_seq in data:
 ```
 
 ## CDS denovo generation
+、、、bash
+python generate_CDS.py --input_path your_path --save_path your_save_path
+```
+default:
+  beam_width = 50
