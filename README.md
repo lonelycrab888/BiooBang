@@ -60,9 +60,11 @@ for name,input_seq in data:
 ```
 
 ## CDS denovo generation
-、、、bash
+
+
+```bash
 python generate_CDS.py --input_path your_path --save_path your_save_path
 ```
 
-default:
+Default:
   beam_width = 50
