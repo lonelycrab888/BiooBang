@@ -57,6 +57,8 @@ for name,input_seq in data:
         embeddings[name] = model(input_ids).hidden_states[:,1:-1,:]
 ```
 
+The expected output dimension of the embedding vector is 1280 dimensions. We offer two options, namely hidden_states and logits. The hidden_states contain the embedding vectors of each token, while the logits represent the sentence embeddings.
+
 ## CDS denovo generation
 
 
