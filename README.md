@@ -28,7 +28,7 @@ Then, activate the "BiooBang" environment.
 conda activate BiooBang
 ```
 ### Download Pre-trained Models
-Our pre-trained model could be downloaded from [Google Drive](https://drive.google.com/drive/folders/1Ls5k7hv83BLRTznB4XcegIa2yKkU40Ls?usp=drive_link) and place the `.pdparams` and `.json` files in the `./output/BERT,ERNIE,MOTIF,PROMPT` folder.
+Our pre-trained model could be downloaded from [Google Drive](https://drive.google.com/drive/folders/1vw8UOTkT3bbAdrdYwoFiDiNymlUYA-uu) and place the `pytorch_model.bin` files in the `./pretrained_model/../` folder.
 
 ## Get Embeddings
 ```python
