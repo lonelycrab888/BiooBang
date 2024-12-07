@@ -35,6 +35,11 @@ git clone https://github.com/lonelycrab888/BiooBang.git
 cd ./BiooBang
 conda env create -f environment.yml
 ```
+Then, activate the "BiooBang" environment.
+
+```bash
+conda activate BiooBang
+```
 ## downstream tasks
 
 ### Species identification
