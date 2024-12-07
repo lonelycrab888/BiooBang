@@ -8,8 +8,7 @@ This repository contains codes for BiooBang, which is an advanced biological lan
     - [Create Environment with Conda](#create-environment-with-conda)
   - [Get embeddings](#get-embeddings)
   - [CDS denovo generation](#cds-denovo-generation)
-    - [1. Data Preparation](#1-data-preparation-2)
-    - [2. Evaluation](#2-evaluation-2)
+      
   - [Baselines](#baselines)
   - [Citation](#citation)
 
@@ -44,15 +43,17 @@ data = [
 ]
 
 # ========== BiooBang Model
-model = UniBioseqForEmbedding.from_pretrained(moded_file)
+model = UniBioseqForEmbedding.from_pretrained(model_file)
+tokenizer = UBSLMTokenizer.from_pretrained(model_file)
 model.eval()
 model.to(device)
 # ========== get Embeddings
 embeddings = {}
-for name,iput_seq in data:
-    input_ids = tokenizer.encode(input_seq)
+for name,input_seq in data:
+    input_ids = tokenizer(input_seq, return_tensors="pt")['input_ids'].to(device)
     with torch.no_grad():
-        embeddings[name] = model(input_ids).logits.tolist()
+        #embeddings[name] = model(input_ids).logits
+        embeddings[name] = model(input_ids).hidden_states[:,1:-1,:]
 ```
 
 ## CDS denovo generation
