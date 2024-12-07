@@ -26,15 +26,15 @@ This repository contains codes for BiooBang, which is an advanced biological lan
   - [Baselines](#baselines)
   - [Citation](#citation)
 
-## installation
+## Installation
+
+### Create Environment with Conda
 First, download the repository and create the environment.
 ```bash
 git clone https://github.com/lonelycrab888/BiooBang.git
 cd ./BiooBang
 conda env create -f environment.yml
 ```
-### Create Environment with Conda
-
 ## downstream tasks
 
 ### Species identification
