@@ -6,23 +6,10 @@ This repository contains codes for BiooBang, which is an advanced biological lan
 - [BiooBang](#BiooBang-v1)
   - [Installation](#installation)
     - [Create Environment with Conda](#create-environment-with-conda)
-  - [Downstream Tasks](#downstream-tasks)
-    - [Species identification](#species-identification)
-      - [1. Data Preparation](#1-data-preparation-1)
-      - [2. Fine-tuning](#2-fine-tuning)
-      - [3. Evaluation](#3-evaluation)
-    - [TE prediction](#te-prediction)
-      - [1. Data Preparation](#1-data-preparation-2)
-      - [2. Fine-tuning](#2-fine-tuning-1)
-      - [3. Evaluation](#3-evaluation-1)
-    - [MRL prediction](#mrl-prediction)
-      - [1. Data Preparation](#1-data-preparation-3)
-      - [2. Adaptation](#2-adaptation)
-      - [3. Evaluation](#3-evaluation-2)
-    - [CDS denovo generation](#cds-denovo-generation)
-      - [1. Data Preparation](#1-data-preparation-3)
-      - [2. Adaptation](#2-adaptation)
-      - [3. Evaluation](#3-evaluation-2)
+  - [Get embeddings](#get-embeddings)
+  - [CDS denovo generation](#cds-denovo-generation)
+    - [1. Data Preparation](#1-data-preparation-2)
+    - [2. Evaluation](#2-evaluation-2)
   - [Baselines](#baselines)
   - [Citation](#citation)
 
@@ -40,12 +27,32 @@ Then, activate the "BiooBang" environment.
 ```bash
 conda activate BiooBang
 ```
-## downstream tasks
 
-### Species identification
+## Get Embeddings
+```python
+import torch
+from model.modeling_UniBioseq import UniBioseqForEmbedding
+from model.tokenization_UniBioseq import UBSLMTokenizer
+model_file = "./load_files/BiooBang_FM"
+# ========== Set device
+device = "cuda:0"
 
-### TE prediction
+# ========== Prepare Data
+data = [
+    ("Protein", "MASSDKQTSPKPPPSPSPLRNSKFCQSNMRILIS"),
+    ("RNA", "ATGGCGTCTAGTGATAAACAAACAAGCCCAAAGCCTCCTCCTTCACCGTCTCCTCTCCGTAATT")
+]
 
-### MRL prediction
+# ========== BiooBang Model
+model = UniBioseqForEmbedding.from_pretrained(moded_file)
+model.eval()
+model.to(device)
+# ========== get Embeddings
+embeddings = {}
+for name,iput_seq in data:
+    input_ids = tokenizer.encode(input_seq)
+    with torch.no_grad():
+        embeddings[name] = model(input_ids).logits.tolist()
+```
 
-### CDS denovo generation
+## CDS denovo generation
