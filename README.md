@@ -25,6 +25,9 @@ Then, activate the "BiooBang" environment.
 ```bash
 conda activate BiooBang
 ```
+
+Typical install time on a “normal" desktop computer: “Approximately 5-10 minutes, assuming a stable internet connection and pre-installed Python (version 3.9 or later).“
+
 ### Download Pre-trained Models
 Our pre-trained model could be downloaded from [Google Drive](https://drive.google.com/drive/folders/1vw8UOTkT3bbAdrdYwoFiDiNymlUYA-uu) and place the `pytorch_model.bin` files in the `./pretrained_model/../` folder.
 
@@ -70,3 +73,5 @@ Default:
   beam_width = 50
   
 We provided two proteins (GFP and mCherry) as examples for using this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
+
+For our example proteins, we used eight 3090 GPUs, and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
