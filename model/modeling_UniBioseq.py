@@ -41,7 +41,6 @@ def get_special_attn_mask(tokens, nheads, pad_id, prompt_id, is_prefix_decoder =
             attn_mask = attn_mask[-seq_len:,:]
             attn_mask = attn_mask.unsqueeze(0).expand(nheads, -1, -1)
             attn_mask = attn_mask.unsqueeze(0).expand(seq_num, - 1, -1, -1)
-            #print(attn_mask[0][0])
             return attn_mask
         elif is_prefix_decoder and is_clm:
             attn_mask = torch.zeros(attn_len , attn_len, device=tokens.device)
@@ -50,7 +49,6 @@ def get_special_attn_mask(tokens, nheads, pad_id, prompt_id, is_prefix_decoder =
             attn_mask = attn_mask[-seq_len:,:]
             attn_mask = attn_mask.unsqueeze(0).expand(nheads, -1, -1)
             attn_mask = attn_mask.unsqueeze(0).expand(seq_num, - 1, -1, -1)
-            #print(attn_mask[0][0])
             return attn_mask
 
         else:
@@ -1158,8 +1156,6 @@ class UniBioseqClassificationHead(nn.Module):
         x = self.out_proj(x)
         return x
 
-
-
 class UniBioseqMLPHead(nn.Module):
     """Head for structure emb similarity tasks."""
 
@@ -1269,9 +1265,6 @@ class UniBioseqForSequenceClassification_bidirectional(UniBioseqPreTrainedModel)
             hidden_states=outputs.hidden_states,
             attentions=outputs.attentions,
         )
-
-
-
 
 class ConvBertHead(nn.Module):
     def __init__(self, config):
@@ -1402,8 +1395,6 @@ class UniBioseqForSequenceClassification_convbert(UniBioseqPreTrainedModel):
             attentions=outputs.attentions,
         )
 
-
-
 class UniBioseqForEmbedding(UniBioseqPreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
@@ -1464,8 +1455,6 @@ class UniBioseqForEmbedding(UniBioseqPreTrainedModel):
             hidden_states = hidden_states,
             attentions = None,
         )
-
-
 
 class UniBioseqForTokenClassification(UniBioseqPreTrainedModel):
     def __init__(self, config):
@@ -1535,7 +1524,6 @@ class UniBioseqForTokenClassification(UniBioseqPreTrainedModel):
             hidden_states=outputs.hidden_states,
             attentions=outputs[3],
         )
-
 
 class UniBioseqForDoubleregression_bidirectional(UniBioseqPreTrainedModel):
     def __init__(self, config):
