@@ -2,6 +2,12 @@ import math
 import warnings
 from typing import Optional, Tuple, List, Union
 
+import torch
+from torch import Tensor, nn
+import torch.nn.functional as F
+from torch.nn import LayerNorm as UBSLMLayerNorm
+from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss, SmoothL1Loss
+
 from transformers.modeling_outputs import (
     BaseModelOutputWithPast, 
     CausalLMOutputWithPast, 
@@ -15,12 +21,6 @@ from transformers.cache_utils import Cache
 from transformers.modeling_utils import PreTrainedModel
 from transformers.utils import logging
 from transformers.modeling_attn_mask_utils import _prepare_4d_causal_attention_mask_for_sdpa
-
-import torch
-from torch import Tensor, nn
-import torch.nn.functional as F
-from torch.nn import LayerNorm as UBSLMLayerNorm
-from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss, SmoothL1Loss
 
 from .configuration_UniBioseq import UBSLMConfig
 from .UBL_utils import  DynamicCache
