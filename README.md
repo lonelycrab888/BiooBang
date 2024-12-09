@@ -88,6 +88,9 @@ For our example proteins (beam_width=50), we used 8 * NVIDIA GeForce RTX 3090(24
 
 ## Citing this Work
 
+Please cite our paper:
+
+```bibtex
 @article {Zhao2024.10.24.620004,
 	author = {Zhao, Heng-Rui and Cheng, Meng-Ting and Zhu, Jinhua and Wang, Hao and Yang, Xiang-Rui and Wang, Bo and Sun, Yuan-Xin and Fang, Ming-Hao and Chen, Enhong and Li, Houqiang and Han, Shu-Jing and Chen, Yuxing and Zhou, Cong-Zhao},
 	title = {Integration of protein and coding sequences enables mutual augmentation of the language model},
@@ -99,6 +102,7 @@ For our example proteins (beam_width=50), we used 8 * NVIDIA GeForce RTX 3090(24
 	eprint = {https://www.biorxiv.org/content/early/2024/10/29/2024.10.24.620004.full.pdf},
 	journal = {bioRxiv}
 }
+```
 
 
 ## Contacts
