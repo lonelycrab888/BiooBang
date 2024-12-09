@@ -47,7 +47,6 @@ def main():
         input_ids = torch.tensor([tokenizer.encode(input_protein)+[36]]).to(model.device)
         max_length = 4*len(input_protein)+6
         result = model.generate(input_ids, max_length = max_length, num_beams = num_beams, logits_processor=logits_processor, low_memory=True, num_return_sequences=1)
-        result_tok_list = []
         result_tok = tokenizer.decode(result[0][len(input_protein)+3:].tolist()).replace(" ","").upper()
         output_cds[name] = result_tok
     print(f"finish!")
