@@ -73,13 +73,22 @@ The expected output dimension of the embedding vector is 1280 dimensions. We off
 
 
 ```bash
-python generate_CDS.py --input_path your_path --save_path your_save_path --num_beams 10
+python generate_CDS.py --input_path='your_path' --save_path='your_save_path' --num_beams=10 --enzyme_cleavage_sites='BamH-I,cggcuaGc'
 ```
 
 Default:
-  beam_width = 10
+
+  beam_width: 10
+
+  enzyme_cleavage_sites: None 
+
+We provide the following enzyme cleavage sites for selection to be excluded:
+
+```bash
+‘BamH-I’, ‘EcoR-I’, ‘Hind-III’, ‘Kpn-I’, ‘Nco-I’, ‘Nde-I’, ‘Nhe-I’, ‘Not-I’, ‘Sac-I’, ‘Sal-I’, ‘Sma-I’, ‘Xba-I’, ‘Xho-I’.
+```
   
-We provided two proteins (GFP and mCherry) as examples for using this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
+Two proteins (GFP and mCherry) are used as examples in this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
 
 For our example proteins (beam_width=50), we used 8 * NVIDIA GeForce RTX 3090(24G), and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
 

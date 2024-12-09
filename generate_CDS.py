@@ -28,13 +28,12 @@ def main():
     parser.add_argument('--input_path', type=str, help='input protein fasta path')
     parser.add_argument('--save_path', type=str, help='save path')
     parser.add_argument('--num_beams', type=int, default=10, help='beamsearch width')
-    parser.add_argument('--enzyme_cleavage_sites', type=list, default=None, 
-                help='Enzyme cleavage sites that need to be excluded can be provided as a list of sequences.')
+    parser.add_argument('--enzyme_cleavage_sites', type=str, default=None, help='Enzyme cleavage sites that need to be excluded can be provided as a list of sequences.')
     args = parser.parse_args() 
     fasta_path = args.input_path
     save_path = args.save_path
     num_beams = args.num_beams 
-    excluding_sites = args.enzyme_cleavage_sites
+    excluding_sites = args.enzyme_cleavage_sites.split(',') if args.enzyme_cleavage_sites else None
 
     print("load pretrained model!")
     tokenizer = UBSLMTokenizer.from_pretrained("pretrained-model/BiooBang-generationCDS")
@@ -59,6 +58,5 @@ def main():
     write_dict_to_fasta(output_cds, save_path)
     print(f"save results to {save_path}")
     
-
 if __name__ == '__main__':
     main()
