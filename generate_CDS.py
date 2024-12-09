@@ -10,7 +10,7 @@ import argparse
 
 def read_fa(fasta_path):
     fasta_dict = {}
-    for record in SeqIO.parse(fasta_file, "fasta"):
+    for record in SeqIO.parse(fasta_path, "fasta"):
         fasta_dict[record.id] = str(record.seq)
     return fasta_dict
 
