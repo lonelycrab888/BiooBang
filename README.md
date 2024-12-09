@@ -71,7 +71,7 @@ The expected output dimension of the embedding vector is 1280 dimensions. We off
 
 
 ```bash
-python generate_CDS.py --input_path your_path --save_path your_save_path
+python generate_CDS.py --input_path your_path --save_path your_save_path --num_beams 10
 ```
 
 Default:
