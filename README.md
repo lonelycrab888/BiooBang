@@ -55,11 +55,14 @@ model.eval()
 model.to(device)
 # ========== get Embeddings
 embeddings = {}
+hidden_states = {}
 for name,input_seq in data:
     input_ids = tokenizer(input_seq, return_tensors="pt")['input_ids'].to(device)
     with torch.no_grad():
-        #embeddings[name] = model(input_ids).logits
-        embeddings[name] = model(input_ids).hidden_states[:,1:-1,:]
+        # get sequence embedding 
+        embeddings[name] = model(input_ids).logits
+        # get last hidden states (token embeddings)
+        hidden_states[name] = model(input_ids).hidden_states[:,1:-1,:]
 ```
 
 The expected output dimension of the embedding vector is 1280 dimensions. We offer two options, namely hidden_states and logits. The hidden_states contain the embedding vectors of each token, while the logits represent the sentence embeddings.
