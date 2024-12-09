@@ -9,6 +9,7 @@ This repository contains codes for BiooBang, which is an advanced biological lan
     - [Download Pre-trained Models](#download-pre-trained-models)
   - [Get embeddings](#get-embeddings)
   - [CDS denovo generation](#cds-denovo-generation)
+  - [Contacts](#Contacts)
       
 
 ## Installation
@@ -85,6 +86,8 @@ For our example proteins (beam_width=50), we used eight 3090 GPUs, and the runni
 
 
 ## Contacts
-If you’re interested in other cell lines, please feel free to contact us![zhr123456@mail.ustc.edu.cn](zhr123456@mail.ustc.edu.cn).
+
+If you’re interested in other cell lines, please feel free to contact us![zhr123456@mail.ustc.edu.cn].
+
 We are honored to help you if you have any questions. Please feel free to open an issue or contact us directly. Hope our code helps and look forward to your citations.
 
