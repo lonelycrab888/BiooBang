@@ -80,7 +80,7 @@ Default:
   
 We provided two proteins (GFP and mCherry) as examples for using this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
 
-For our example proteins (beam_width=50), we used eight 3090 GPUs, and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
+For our example proteins (beam_width=50), we used 8 * Nvidia RTX 3090 GPUs, and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
 
 **More versatile fine-tuned models for a broader range of cell lines are on the verge of being unleashed—prepare for the revolution!**
 
