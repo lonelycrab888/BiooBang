@@ -6,7 +6,7 @@ This repository contains codes for BiooBang, which is an advanced biological lan
 - [BiooBang](#BiooBang-v1)
   - [Installation](#installation)
     - [Create Environment with Conda](#create-environment-with-conda)
-    - [Download Pre-trained Models](#download-pretrained-models)
+    - [Download Pre-trained Models](#download-pre-trained-models)
   - [Get embeddings](#get-embeddings)
   - [CDS denovo generation](#cds-denovo-generation)
       
