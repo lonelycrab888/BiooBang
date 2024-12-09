@@ -42,7 +42,7 @@ def main():
     input_protein_dict = read_fa(fasta_path)
     output_cds = {}
     print("start generation!")
-    for name, sequence in enumerate(input_protein_dict):
+    for name, input_protein in enumerate(input_protein_dict):
         input_ids = torch.tensor([tokenizer.encode(input_protein)+[36]]).to(model.device)
         max_length = 4*len(input_protein)+6
         result = model.generate(input_ids, max_length = max_length, num_beams = num_beams, logits_processor=logits_processor, low_memory=True, num_return_sequences=num_beams)
