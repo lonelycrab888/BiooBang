@@ -1,6 +1,7 @@
 name: BiooBang
 dependencies:
   - python=3.10
+  - pip
   - pip:
       - transformers==4.36.2
       - deepspeed==0.13.2
