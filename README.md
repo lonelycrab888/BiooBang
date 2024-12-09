@@ -9,6 +9,7 @@ This repository contains codes for BiooBang, which is an advanced biological lan
     - [Download Pre-trained Models](#download-pre-trained-models)
   - [Get embeddings](#get-embeddings)
   - [CDS denovo generation](#cds-denovo-generation)
+  - [Citing this work](#citing-this-work)
   - [Contacts](#Contacts)
       
 
@@ -82,11 +83,22 @@ We provided two proteins (GFP and mCherry) as examples for using this demo scrip
 
 For our example proteins (beam_width=50), we used 8 * NVIDIA GeForce RTX 3090(24G), and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
 
-```html
-<u>More versatile fine-tuned models for a broader range of cell lines are on the verge of being unleashed—prepare for the revolution!</u>
-```
-
 **More versatile fine-tuned models for a broader range of cell lines are on the verge of being unleashed—prepare for the revolution!**
+
+
+## Citing this Work
+
+@article {Zhao2024.10.24.620004,
+	author = {Zhao, Heng-Rui and Cheng, Meng-Ting and Zhu, Jinhua and Wang, Hao and Yang, Xiang-Rui and Wang, Bo and Sun, Yuan-Xin and Fang, Ming-Hao and Chen, Enhong and Li, Houqiang and Han, Shu-Jing and Chen, Yuxing and Zhou, Cong-Zhao},
+	title = {Integration of protein and coding sequences enables mutual augmentation of the language model},
+	elocation-id = {2024.10.24.620004},
+	year = {2024},
+	doi = {10.1101/2024.10.24.620004},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2024/10/29/2024.10.24.620004},
+	eprint = {https://www.biorxiv.org/content/early/2024/10/29/2024.10.24.620004.full.pdf},
+	journal = {bioRxiv}
+}
 
 
 ## Contacts
