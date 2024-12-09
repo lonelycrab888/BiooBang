@@ -1,4 +1,4 @@
-name: BiooBang_test_paper
+name: BiooBang
 channels:
   - pytorch
   - nvidia
