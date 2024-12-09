@@ -82,8 +82,9 @@ We provided two proteins (GFP and mCherry) as examples for using this demo scrip
 For our example proteins (beam_width=50), we used eight 3090 GPUs, and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
 
 **More versatile fine-tuned models for a broader range of cell lines are on the verge of being unleashed—prepare for the revolution!**
-（If you’re interested in other cell lines, please feel free to contact us!）
 
 
-
+## Contacts
+If you’re interested in other cell lines, please feel free to contact us![zhr123456@mail.ustc.edu.cn](zhr123456@mail.ustc.edu.cn).
+We are honored to help you if you have any questions. Please feel free to open an issue or contact us directly. Hope our code helps and look forward to your citations.
 
