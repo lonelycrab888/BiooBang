@@ -19,6 +19,7 @@ First, download the repository and create the environment.
 git clone https://github.com/lonelycrab888/BiooBang.git
 cd ./BiooBang
 conda env create -f environment.yml
+### Notice to check your cuda version
 ```
 Then, activate the "BiooBang" environment.
 
