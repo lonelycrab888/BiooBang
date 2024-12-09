@@ -23,7 +23,7 @@ from torch.nn import LayerNorm as UBSLMLayerNorm
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss, SmoothL1Loss
 
 from .configuration_UniBioseq import UBSLMConfig
-from .UBL_utils import  DynamicCache, loss_StructureEmbedding_regression, loss_StructureEmbedding_classification
+from .UBL_utils import  DynamicCache
 
 logger = logging.get_logger(__name__)
 
