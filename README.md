@@ -73,7 +73,11 @@ The expected output dimension of the embedding vector is 1280 dimensions. We off
 
 
 ```bash
-python generate_CDS.py --input_path='your_path' --save_path='your_save_path' --num_beams=10 --enzyme_cleavage_sites='BamH-I,cggcuaGc'
+python generate_CDS.py \
+      --input_path='your_path' \
+      --save_path='your_save_path' \
+      --num_beams=10 \
+      --enzyme_cleavage_sites='BamH-I,cggcuaGc'
 ```
 
 Default:
@@ -85,7 +89,9 @@ Default:
 We provide the following enzyme cleavage sites for selection to be excluded:
 
 ```bash
-‘BamH-I’, ‘EcoR-I’, ‘Hind-III’, ‘Kpn-I’, ‘Nco-I’, ‘Nde-I’, ‘Nhe-I’, ‘Not-I’, ‘Sac-I’, ‘Sal-I’, ‘Sma-I’, ‘Xba-I’, ‘Xho-I’.
+‘BamH-I’, ‘EcoR-I’, ‘Hind-III’, ‘Kpn-I’, 
+‘Nco-I’, ‘Nde-I’, ‘Nhe-I’, ‘Not-I’, 
+‘Sac-I’, ‘Sal-I’, ‘Sma-I’, ‘Xba-I’, ‘Xho-I’.
 ```
   
 Two proteins (GFP and mCherry) are used as examples in this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
