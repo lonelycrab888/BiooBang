@@ -82,9 +82,9 @@ We provided two proteins (GFP and mCherry) as examples for using this demo scrip
 
 For our example proteins (beam_width=50), we used 8 * NVIDIA GeForce RTX 3090(24G), and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
 
-
+```html
 <u>More versatile fine-tuned models for a broader range of cell lines are on the verge of being unleashed—prepare for the revolution!</u>
-
+```
 
 **More versatile fine-tuned models for a broader range of cell lines are on the verge of being unleashed—prepare for the revolution!**
 
