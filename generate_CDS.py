@@ -40,7 +40,6 @@ def main():
     logits_processor = LogitsProcessorList()
     logits_processor.append(new_logits_processor(forbid_aa()))
     input_protein_dict = read_fa(fasta_path)
-    print(input_protein_dict)
     output_cds = {}
     print("start generation!")
     for name, input_protein in input_protein_dict.items():
