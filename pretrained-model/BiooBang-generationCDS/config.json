@@ -28,7 +28,6 @@
   "num_hidden_layers": 33,
   "pad_token_id": 1,
   "pooling_type": "MEAN",
-  "problem_type": "regression",
   "prompt_token_id": 36,
   "token_dropout": false,
   "torch_dtype": "float32",
