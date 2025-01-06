@@ -93,10 +93,12 @@ We provide the following enzyme cleavage sites for selection to be excluded:
 ‘Nco-I’, ‘Nde-I’, ‘Nhe-I’, ‘Not-I’, ‘Dpn-I’, 
 ‘Sac-I’, ‘Sal-I’, ‘Sma-I’, ‘Xba-I’, ‘Xho-I’.
 ```
-  
+
+Precautions: If your target protein does not start with “M,” we recommend adding an “M” at the beginning and removing the “AUG” codon corresponding to “M” from the final generated sequence. This helps prevent hallucination errors by the model.
+
 Two proteins (GFP and mCherry) are used as examples in this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
 
-For our example proteins (beam_width=50), we used 8 * NVIDIA GeForce RTX 3090(24G), and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference.
+For our example proteins (beam_width=50), we used 8 * NVIDIA GeForce RTX 3090(24G), and the running time was approximately 3 minutes per protein. The length of the protein is positively correlated with the duration of running inference. 
 
 **More versatile fine-tuned models for a broader range of cell lines are on the verge of being unleashed—prepare for the revolution!**
 
