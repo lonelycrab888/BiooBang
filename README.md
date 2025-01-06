@@ -90,7 +90,7 @@ We provide the following enzyme cleavage sites for selection to be excluded:
 
 ```bash
 ‘BamH-I’, ‘EcoR-I’, ‘Hind-III’, ‘Kpn-I’, 
-‘Nco-I’, ‘Nde-I’, ‘Nhe-I’, ‘Not-I’, 
+‘Nco-I’, ‘Nde-I’, ‘Nhe-I’, ‘Not-I’, ‘Dpn-I’, 
 ‘Sac-I’, ‘Sal-I’, ‘Sma-I’, ‘Xba-I’, ‘Xho-I’.
 ```
   
