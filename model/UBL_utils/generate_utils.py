@@ -18,7 +18,8 @@ sites = {
     'Sal-I': ['gcgucgac','acgcgucgac'],
     'Sma-I': ['cccccggg','ucccccggg'],
     'Xba-I': ['ugcucuaga','cuagucuaga'],
-    'Xho-I': ['ccccucgag','ccgcucgag','gaucucgag']
+    'Xho-I': ['ccccucgag','ccgcucgag','gaucucgag'],
+    'Dpn-I': ['gauc']
 }
 
 def forbid_aa():
