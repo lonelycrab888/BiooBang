@@ -94,7 +94,7 @@ We provide the following enzyme cleavage sites for selection to be excluded:
 ‘Sac-I’, ‘Sal-I’, ‘Sma-I’, ‘Xba-I’, ‘Xho-I’.
 ```
 
-Precautions: If your target protein does not start with “M,” we recommend adding an “M” at the beginning and removing the “AUG” codon corresponding to “M” from the final generated sequence. This helps prevent hallucination errors by the model.
+Precautions: If your target protein does not start with “M,” we recommend adding an “M” at the beginning and removing the “AUG” codon corresponding to “M” from the final generated sequence. This helps prevent hallucination errors by the model. If your sequence is too long or computational resources are insufficient, we recommend performing truncated generation for the target protein and stitching the segments together at the end.
 
 Two proteins (GFP and mCherry) are used as examples in this demo script. You can set the input_path to `./experiment_data/input.fasta` to reproduce the results in our paper.
 
