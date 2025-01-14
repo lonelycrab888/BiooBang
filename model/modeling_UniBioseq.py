@@ -1,6 +1,7 @@
 import math
 import warnings
 from typing import Optional, Tuple, List, Union
+from functools import partial
 
 import torch
 from torch import Tensor, nn
@@ -1299,16 +1300,51 @@ class ConvBertHead(nn.Module):
             x = convbert_layer(x)[0]
         return x
 
+class GlobalMaxPooling1D(nn.Module):
+    def __init__(self):
+        """
+            Applies global max pooling over timesteps dimension
+        """
+
+        super().__init__()
+        self.global_max_pool1d = partial(torch.max, dim=1)
+
+    def forward(self, x):
+        out, _ = self.global_max_pool1d(x)
+        return out
+
+
+class GlobalAvgPooling1D(nn.Module):
+    def __init__(self):
+        """
+            Applies global average pooling over timesteps dimension
+        """
+
+        super().__init__()
+        self.global_avg_pool1d = partial(torch.mean, dim=1)
+
+    def forward(self, x):
+        out = self.global_avg_pool1d(x)
+        return out
+
 
 class UniBioseqForSequenceClassification_convbert(UniBioseqPreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
         self.num_labels = config.num_labels
         self.config = config
-
+        
         self.model = UniBioseqModel(config)
         self.convbert = ConvBertHead(config)
-        self.pooling = UniBioseqPooler(config)
+        if config.pooling_type is not None:
+            if config.pooling_type in {"MEAN", "mean"}:
+                self.pooling = GlobalAvgPooling1D()
+            elif config.pooling_type == "CLS":
+                self.pooling = GlobalMaxPooling1D()
+            else:
+                raise ValueError(
+                    f"Expected pooling to be [`avg`, `max`]. Recieved: {pooling}"
+                )
         self.score = nn.Linear(config.hidden_size, config.num_labels)
         self.post_init()
 
@@ -1354,9 +1390,11 @@ class UniBioseqForSequenceClassification_convbert(UniBioseqPreTrainedModel):
             is_decoder = is_decoder,
         )
 
-        sequence_output = outputs[0]
+        sequence_output = outputs[0][0][1:-1]
         c_sequence_output = self.convbert(sequence_output)
-        sequence_pooling = self.pooling(c_sequence_output, input_ids)
+        
+
+        sequence_pooling = self.pooling(c_sequence_output)
         logits = self.score(sequence_pooling)
 
         loss = None
@@ -1394,6 +1432,83 @@ class UniBioseqForSequenceClassification_convbert(UniBioseqPreTrainedModel):
             hidden_states=outputs.hidden_states,
             attentions=outputs.attentions,
         )
+
+
+class UniBioseqForTokenClassification_convbert(UniBioseqPreTrainedModel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.num_labels = config.num_labels
+        self.config = config
+        
+        self.model = UniBioseqModel(config)
+        self.convbert = ConvBertHead(config)
+        self.score = nn.Linear(config.hidden_size, config.num_labels)
+        self.post_init()
+
+    def forward(
+            self, 
+            input_ids: torch.LongTensor = None,
+            attention_mask: Optional[torch.Tensor] = None,
+            position_ids: Optional[torch.Tensor] = None,
+            past_key_values: Optional[List[torch.FloatTensor]] = None,
+            inputs_embeds: Optional[torch.FloatTensor] = None,
+            labels: Optional[torch.LongTensor] = None,
+            use_cache: Optional[bool] = False,
+            need_weights: Optional[bool] = None,
+            output_attentions: Optional[bool] = None,
+            output_hidden_states: Optional[bool] = None,
+            return_dict: Optional[bool] = None,
+            is_decoder: Optional[bool] = None,
+        ) -> Union[Tuple, SequenceClassifierOutput]:
+        r"""
+        labels (`torch.LongTensor` of shape `(batch_size,)`, *optional*):
+            Labels for computing the sequence classification/regression loss. Indices should be in `[0, ...,
+            config.num_labels - 1]`. If `config.num_labels == 1` a regression loss is computed (Mean-Square loss), If
+            `config.num_labels > 1` a classification loss is computed (Cross-Entropy).
+        """
+        return_dict = return_dict if return_dict is not None else self.config.use_return_dict
+        output_attentions = False
+        output_hidden_states = False
+        need_weights =False
+        use_cache = False
+        is_decoder = False
+
+        outputs = self.model(
+            input_ids=input_ids,
+            attention_mask = attention_mask,
+            position_ids = position_ids,
+            past_key_values = past_key_values,
+            inputs_embeds = inputs_embeds,
+            use_cache = use_cache,
+            need_weights = need_weights,
+            output_attentions = output_attentions,
+            output_hidden_states = output_hidden_states,
+            return_dict = return_dict,
+            is_decoder = is_decoder,
+        )
+
+        sequence_output = outputs[0][0][1:-1]
+        c_sequence_output = self.convbert(sequence_output)
+        logits = self.score(c_sequence_output)
+
+        loss = None
+        if labels is not None:
+            loss_fct = CrossEntropyLoss()
+
+            labels = labels.to(logits.device)
+            loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))
+
+        if not return_dict:
+            output = (logits,) + outputs[2:]
+            return ((loss,) + output) if loss is not None else output
+
+        return SequenceClassifierOutput(
+            loss=loss,
+            logits=logits,
+            hidden_states=outputs.hidden_states,
+            attentions=outputs.attentions,
+        )
+
 
 class UniBioseqForEmbedding(UniBioseqPreTrainedModel):
     def __init__(self, config):
