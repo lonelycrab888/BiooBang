@@ -70,7 +70,7 @@ for name,input_seq in data:
 
 The expected output dimension of the embedding vector is 1280 dimensions. We offer two options, namely hidden_states and logits. The hidden_states contain the embedding vectors of each token, while the logits represent the sentence embeddings.
 
-## Protein property prediction
+## Protein Property Prediction
 
 We provide a notebook [Example Notebook](protein_benchmark_test.ipynb) for protein property prediction, including tasks such as SolP, FoldP, LocP, and SSP.
 
@@ -82,7 +82,7 @@ We fine-tuned the base model using the frozen parameter method (training only th
 When placing the weight file into the `pretrained-model` folder, please rename it to `pytorch_model.bin`.
 
 
-## CDS denovo generation
+## CDS Denovo Generation
 
 
 ```bash
