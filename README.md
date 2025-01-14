@@ -8,6 +8,7 @@ This repository contains codes for BiooBang, which is an advanced biological lan
     - [Create Environment with Conda](#create-environment-with-conda)
     - [Download Pre-trained Models](#download-pre-trained-models)
   - [Get embeddings](#get-embeddings)
+  - [Protein property prediction](#protein-property-prediction)
   - [CDS denovo generation](#cds-denovo-generation)
   - [Citing this work](#citing-this-work)
   - [Contacts](#Contacts)
@@ -68,6 +69,18 @@ for name,input_seq in data:
 ```
 
 The expected output dimension of the embedding vector is 1280 dimensions. We offer two options, namely hidden_states and logits. The hidden_states contain the embedding vectors of each token, while the logits represent the sentence embeddings.
+
+## Protein property prediction
+
+We provide a notebook [Example Notebook](protein_benchmark_test.ipynb) for protein property prediction, including tasks such as SolP, FoldP, LocP, and SSP.
+
+To use this notebook, you can download the data and our model weights from [Zenodo](https://zenodo.org/records/13954425). 
+
+We fine-tuned the base model using the frozen parameter method (training only the prediction head). 
+
+### Important Note:
+When placing the weight file into the `pretrained-model` folder, please rename it to `pytorch_model.bin`.
+
 
 ## CDS denovo generation
 
