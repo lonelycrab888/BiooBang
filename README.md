@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <a href="https://www.nature.com/articles/s41467-025-58588-7" target="_blank"><img src="https://img.shields.io/badge/Nature-Paper-2C974B?style=for-the-badge&logo=nature&logoColor=white" alt="arXiv"></a>
+  <a href="https://www.biorxiv.org/content/10.1101/2024.10.24.620004v1.full.pdf" target="_blank"><img src="https://img.shields.io/badge/bioRxiv-Paper-2C974B?style=for-the-badge&logo=biorxiv&logoColor=white" alt="bioRxiv"></a>
   <a href="https://github.com/lonelycrab888/BiooBang"><img src="https://img.shields.io/badge/GitHub-Code-4A90E2?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="...."><img src="https://img.shields.io/badge/HuggingFace-Model-FFBF00?style=for-the-badge&logo=huggingface&logoColor=white" alt="HuggingFace Model"></a>
 </p>
