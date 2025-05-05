@@ -4,6 +4,12 @@
 
 </div>
 
+<p align="center">
+  <a href="https://www.nature.com/articles/s41467-025-58588-7" target="_blank"><img src="https://img.shields.io/badge/Nature-Paper-2C974B?style=for-the-badge&logo=nature&logoColor=white" alt="arXiv"></a>
+  <a href="https://github.com/lonelycrab888/BiooBang"><img src="https://img.shields.io/badge/GitHub-Code-4A90E2?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+  <a href="...."><img src="https://img.shields.io/badge/HuggingFace-Model-FFBF00?style=for-the-badge&logo=huggingface&logoColor=white" alt="HuggingFace Model"></a>
+</p>
+
 This repository contains codes for BiooBang, which is an advanced biological language model designed to integrate **protein amino acid sequences** and **mRNA coding sequences (CDS)** within a unified framework. Built on a **Transformer-based prefix decoder** architecture, BiooBang leverages the principles of natural language processing to treat protein and CDS sequences as biological “languages”, enabling self-supervised learning for comprehensive training.
 
 
