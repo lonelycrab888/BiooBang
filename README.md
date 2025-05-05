@@ -1,6 +1,6 @@
 <div align="center">
 
-# BiooBang-v1
+# BiooBang 1.0
 
 </div>
 
