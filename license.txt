@@ -1,2 +1,13 @@
-The BiooBang code is freely accessible to all interested parties. 
-It is free for academic, non-profit, and research use, and can be licensed for commercial use.
+Academic Use License
+
+Copyright (c) 2025 [zczlab]
+
+This software is made available for non-commercial academic research purposes only.
+Commercial use, including but not limited to selling software, using it in a commercial
+product or service, or any revenue-generating activity, is strictly prohibited without
+prior written permission.
+
+Use of this code is permitted for academic research and teaching purposes, provided
+that proper attribution is given.
+
+Contact zcz@ustc.edu.cn for commercial licensing inquiries.
