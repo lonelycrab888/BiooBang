@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://www.biorxiv.org/content/10.1101/2024.10.24.620004v1.full.pdf" target="_blank"><img src="https://img.shields.io/badge/bioRxiv-Paper-2C974B?style=for-the-badge&logo=biorxiv&logoColor=white" alt="bioRxiv"></a>
   <a href="https://github.com/lonelycrab888/BiooBang"><img src="https://img.shields.io/badge/GitHub-Code-4A90E2?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
-  <a href="...."><img src="https://img.shields.io/badge/HuggingFace-Model-FFBF00?style=for-the-badge&logo=huggingface&logoColor=white" alt="HuggingFace Model"></a>
+  <a href="https://huggingface.co/lonelycrab88/BiooBang-1.0"><img src="https://img.shields.io/badge/HuggingFace-Model-FFBF00?style=for-the-badge&logo=huggingface&logoColor=white" alt="HuggingFace Model"></a>
 </p>
 
 This repository contains codes for BiooBang, which is an advanced biological language model designed to integrate **protein amino acid sequences** and **mRNA coding sequences (CDS)** within a unified framework. Built on a **Transformer-based prefix decoder** architecture, BiooBang leverages the principles of natural language processing to treat protein and CDS sequences as biological “languages”, enabling self-supervised learning for comprehensive training.
