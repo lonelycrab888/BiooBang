@@ -44,14 +44,14 @@ conda activate BiooBang
 Typical install time on a “normal" desktop computer: “Approximately 5-10 minutes, assuming a stable internet connection and pre-installed Python (version 3.9 or later).“
 
 ### Download Pre-trained Models
-Our pre-trained model could be downloaded from [Google Drive](https://drive.google.com/drive/folders/1vw8UOTkT3bbAdrdYwoFiDiNymlUYA-uu) and place the `pytorch_model.bin` files in the `./pretrained_model/../` folder.
+The model can be easily loaded using the .from_pretrained("lonelycrab88/BiooBang-1.0") method.
+Another way to use the model is by downloading the weights locally from [Huggingface](https://huggingface.co/lonelycrab88/BiooBang-1.0/tree/main).
 
 ## Get Embeddings
 ```python
 import torch
 from model.modeling_UniBioseq import UniBioseqForEmbedding
 from model.tokenization_UniBioseq import UBSLMTokenizer
-model_file = "./load_files/BiooBang_FM"
 # ========== Set device
 device = "cuda:0"
 
@@ -62,8 +62,8 @@ data = [
 ]
 
 # ========== BiooBang Model
-model = UniBioseqForEmbedding.from_pretrained(model_file)
-tokenizer = UBSLMTokenizer.from_pretrained(model_file)
+model = UniBioseqForEmbedding.from_pretrained("lonelycrab88/BiooBang-1.0")
+tokenizer = UBSLMTokenizer.from_pretrained("lonelycrab88/BiooBang-1.0")
 model.eval()
 model.to(device)
 # ========== get Embeddings
@@ -76,6 +76,23 @@ for name,input_seq in data:
         embeddings[name] = model(input_ids).logits
         # get last hidden states (token embeddings)
         hidden_states[name] = model(input_ids).hidden_states[:,1:-1,:]
+
+# ========== generate CDS
+from transformers.generation.logits_process import LogitsProcessorList
+from model.UBL_utils import CodonLogitsProcessor
+from model.modeling_UniBioseq import UniBioseqForCausalLM
+tokenizer = UBSLMTokenizer.from_pretrained("lonelycrab88/BiooBang-1.0")
+model = UniBioseqForCausalLM.from_pretrained("lonelycrab88/BiooBang-1.0", device_map='auto')
+
+protein_prompt = "MASSDKQTSPKPPPSPSPLRNSKFCQSNMRILIS"
+input_ids = torch.tensor([tokenizer.encode(input_protein)+[36]]).to(model.device)
+max_length = 4*len(input_protein)+6
+
+logits_processor = LogitsProcessorList()
+logits_processor.append(CodonLogitsProcessor(input_protein, tokenizer, len(input_protein)))
+result = model.generate(input_ids, max_length = max_length, num_beams = 10, logits_processor=logits_processor, low_memory=True, num_return_sequences=1)
+result_CDS_tok = tokenizer.decode(result[0][len(input_protein)+3:].tolist()).replace(" ","").upper()
+
 ```
 
 The expected output dimension of the embedding vector is 1280 dimensions. We offer two options, namely hidden_states and logits. The hidden_states contain the embedding vectors of each token, while the logits represent the sentence embeddings.
