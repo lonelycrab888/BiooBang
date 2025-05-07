@@ -4,7 +4,7 @@
 
 [![biorxiv](https://img.shields.io/badge/bioRxiv-preprint-yellow.svg)](https://www.biorxiv.org/content/10.1101/2024.10.24.620004v1.full.pdf)
 [![HuggingFace Hub](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-red)](https://huggingface.co/lonelycrab88/BiooBang-1.0)
-![license](https://img.shields.io/badge/License-MIT-green.svg?labelColor=gray)
+![license](https://img.shields.io/badge/License-CC--BY--NC%204.0-blue.svg?labelColor=gray)
 
 </div>
 
