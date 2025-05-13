@@ -1339,11 +1339,11 @@ class UniBioseqForSequenceClassification_convbert(UniBioseqPreTrainedModel):
         if config.pooling_type is not None:
             if config.pooling_type in {"MEAN", "mean"}:
                 self.pooling = GlobalAvgPooling1D()
-            elif config.pooling_type == "CLS":
+            elif config.pooling_type in {"MAX", "max"}:
                 self.pooling = GlobalMaxPooling1D()
             else:
                 raise ValueError(
-                    f"Expected pooling to be [`avg`, `max`]. Recieved: {pooling}"
+                    f"Expected pooling to be [`avg`, `max`]. Recieved: {config.pooling_type}"
                 )
         self.score = nn.Linear(config.hidden_size, config.num_labels)
         self.post_init()
