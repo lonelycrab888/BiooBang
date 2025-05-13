@@ -103,12 +103,12 @@ We fine-tuned the base model using the frozen parameter method (training only th
 
 To use this notebook, you can download the data and our model weights from [Zenodo](https://doi.org/10.5281/zenodo.13954425). 
 
-You can find our test data in the *training_data* folder, and the fine-tuned model weights in the *finetuned_model* directory.
+You can find our test data in the `training_data` folder, and the fine-tuned model weights in the `finetuned_model` directory.
 We provide model checkpoints trained with three different random seeds.
-To get started, simply place the *.bin* files into the *model_file* directory, and you’ll be able to easily run our test notebook.
+To get started, simply place the `.bin` files into the `model_file` directory, and you’ll be able to easily run our test notebook.
 
 ### Important Note:
-When placing the weight file into the `pretrained-model` folder, please rename it to `pytorch_model.bin`.
+When placing the weight file into the `model_file` folder, please rename it to `pytorch_model.bin`.
 
 
 ## CDS Denovo Generation
