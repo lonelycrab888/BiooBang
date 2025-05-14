@@ -119,13 +119,9 @@ options:
 
   -h, --help            show this help message and exit
   
-  --head_weights_path HEADS_WEIGHTS
-  
-                        the path to the prediction head weights file
+  --head_weights_path HEADS_WEIGHTS : the path to the prediction head weights file
 			
-  --output_path OUTPUT_PATH
-  
-                        the path to save the merged weights file
+  --output_path OUTPUT_PATH : the path to save the merged weights file
 
 
 ## CDS Denovo Generation
