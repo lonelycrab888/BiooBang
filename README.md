@@ -4,7 +4,7 @@
 
 [![biorxiv](https://img.shields.io/badge/bioRxiv-preprint-yellow.svg)](https://www.biorxiv.org/content/10.1101/2024.10.24.620004v1.full.pdf)
 [![HuggingFace Hub](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-red)](https://huggingface.co/collections/lonelycrab88/bioobang-10-68185e7a37bd54dd54707b12)
-[![Zenodo](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.14648464-green.svg)](https://doi.org/10.5281/zenodo.14648464)
+[![Zenodo](https://img.shields.io/badge/zenodo%2Fzenodo.14648464-green.svg)](https://doi.org/10.5281/zenodo.14648464)
 ![license](https://img.shields.io/badge/License-CC--BY--NC%204.0-blue.svg?labelColor=gray)
 
 
