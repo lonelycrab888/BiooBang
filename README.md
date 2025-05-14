@@ -108,8 +108,7 @@ We provide model checkpoints trained with three different random seeds.
 To get started, simply place the `.bin` files into the `model_file` directory, and you’ll be able to easily run our test notebook.
 
 ### Important Note:
-When placing the weight file into the `model_file` folder, please rename it to `pytorch_model.bin`.
-
+The [Zenodo](https://doi.org/10.5281/zenodo.13954425) only provides the weights of the prediction heads. When using the notebook, you can use the `xxx` script to recreate the complete weight file. When putting the created weight file into the `model_file` folder, please rename it to `pytorch_model.bin`.
 
 ## CDS Denovo Generation
 
