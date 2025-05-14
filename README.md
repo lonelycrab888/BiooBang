@@ -116,10 +116,15 @@ usage: python merge_params.py [-h] --head_weights_path HEADS_WEIGHTS --output_pa
 Merge model weights script
 
 options:
+
   -h, --help            show this help message and exit
+  
   --head_weights_path HEADS_WEIGHTS
+  
                         the path to the prediction head weights file
+			
   --output_path OUTPUT_PATH
+  
                         the path to save the merged weights file
 
 
