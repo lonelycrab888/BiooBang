@@ -98,17 +98,31 @@ The expected output dimension of the embedding vector is 1280 dimensions. We off
 
 ## Protein Property Prediction
 
-We provide a notebook [Example Notebook](src/protein_benchmark_test.ipynb) for protein property prediction, including tasks such as SolP, FoldP, LocP, and SSP.
+We provide a notebook [Example Notebook](validation_benchmark/protein_benchmark_test.ipynb) for protein property prediction, including tasks such as SolP, FoldP, LocP, and SSP.
 We fine-tuned the base model using the frozen parameter method (training only the prediction head). 
 
 To use this notebook, you can download the data and our model weights from [Zenodo](https://zenodo.org/records/14648464). 
 
 You can find our test data in the `training_data` folder, and the fine-tuned model weights in the `finetuned_model` directory.
 We provide model checkpoints trained with three different random seeds.
-To get started, simply place the `.bin` files into the `model_file` directory, and you’ll be able to easily run our test notebook.
+The [Zenodo](https://zenodo.org/records/14648464) only provides the weights of the prediction heads. 
+When using the notebook, you can use the [merge_weights](validation_benchmark/merge_weights.py) script to recreate the complete weight file. When putting the created weight file into the `model_file` folder, please rename it to `pytorch_model.bin`, and you’ll be able to easily run our test notebook.
 
-### Important Note:
-The [Zenodo](https://zenodo.org/records/14648464) only provides the weights of the prediction heads. When using the notebook, you can use the [merge_weights](src/merge_weights.py) script to recreate the complete weight file. When putting the created weight file into the `model_file` folder, please rename it to `pytorch_model.bin`.
+### How to use [merge_weights](validation_benchmark/merge_weights.py)
+
+
+usage: python merge_params.py [-h] --head_weights_path HEADS_WEIGHTS --output_path OUTPUT_PATH
+
+Merge model weights script
+
+options:
+
+  -h, --help            show this help message and exit
+  
+  --head_weights_path HEADS_WEIGHTS : the path to the prediction head weights file
+			
+  --output_path OUTPUT_PATH : the path to save the merged weights file
+
 
 ## CDS Denovo Generation
 
