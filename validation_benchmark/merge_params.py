@@ -1,5 +1,7 @@
 import argparse
 import torch
+import sys
+sys.path.append("..")
 from model.modeling_UniBioseq import UniBioseqModel
 
 def main():
