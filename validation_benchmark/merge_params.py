@@ -7,7 +7,7 @@ from model.modeling_UniBioseq import UniBioseqModel
 def main():
     parser = argparse.ArgumentParser(description="Merge model weights script")
     
-    parser.add_argument("--heads_weights", type=str, required=True,
+    parser.add_argument("--head_weights_path", type=str, required=True,
                         help="the path to the prediction head weights file")
     parser.add_argument("--output_path", type=str, required=True,
                         help="the path to save the merged weights file")
@@ -19,8 +19,8 @@ def main():
         model = UniBioseqModel.from_pretrained("lonelycrab88/BiooBang-1.0")
         model_weights = model.state_dict()
         
-        print(f"loading the prediction head weights: {args.heads_weights}")
-        heads_weights = torch.load(args.heads_weights)
+        print(f"loading the prediction head weights: {args.head_weights_path}")
+        heads_weights = torch.load(args.head_weights_path)
         
         print("merging the weights...")
         finetuned_weights = {**model_weights, **heads_weights}
