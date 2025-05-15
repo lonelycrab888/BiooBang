@@ -18,7 +18,7 @@ This repository contains codes for BiooBang, which is an advanced biological lan
   - [Installation](#installation)
     - [Create Environment with Conda](#create-environment-with-conda)
     - [Download Pre-trained Models](#download-pre-trained-models)
-  - [Get embeddings](#get-embeddings)
+  - [Quick start](#quick-start)
   - [Protein property prediction](#protein-property-prediction)
   - [CDS denovo generation](#cds-denovo-generation)
   - [Citing this work](#citing-this-work)
@@ -48,7 +48,8 @@ Typical install time on a “normal" desktop computer: “Approximately 5-10 min
 The model can be easily loaded using the .from_pretrained("lonelycrab88/BiooBang-1.0") method.
 Another way to use the model is by downloading the weights locally from [Huggingface](https://huggingface.co/lonelycrab88/BiooBang-1.0/tree/main).
 
-## Get Embeddings
+## Quick Start
+
 ```python
 import torch
 from model.modeling_UniBioseq import UniBioseqForEmbedding
