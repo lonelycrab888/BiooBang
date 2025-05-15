@@ -78,7 +78,9 @@ for name,input_seq in data:
         embeddings[name] = model(input_ids).logits
         # get last hidden states (token embeddings)
         hidden_states[name] = model(input_ids).hidden_states[:,1:-1,:]
+```
 
+```python
 # ========== generate CDS
 from transformers.generation.logits_process import LogitsProcessorList
 from model.UBL_utils import CodonLogitsProcessor
