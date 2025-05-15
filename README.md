@@ -78,6 +78,8 @@ for name,input_seq in data:
         embeddings[name] = model(input_ids).logits
         # get last hidden states (token embeddings)
         hidden_states[name] = model(input_ids).hidden_states[:,1:-1,:]
+# The expected output dimension of the embedding vector is 1280 dimensions. We offer two options, namely hidden_states and logits. The hidden_states contain the embedding vectors of each token, while the logits represent the sentence embeddings.
+
 ```
 
 ```python
@@ -98,8 +100,6 @@ result = model.generate(input_ids, max_length = max_length, num_beams = 10, logi
 result_CDS_tok = tokenizer.decode(result[0][len(input_protein)+3:].tolist()).replace(" ","").upper()
 
 ```
-
-The expected output dimension of the embedding vector is 1280 dimensions. We offer two options, namely hidden_states and logits. The hidden_states contain the embedding vectors of each token, while the logits represent the sentence embeddings.
 
 ## Protein Property Prediction
 
