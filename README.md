@@ -117,7 +117,7 @@ We provide model checkpoints trained with three different random seeds.
 The [Zenodo](https://zenodo.org/records/14648464) only provides the weights of the prediction heads. 
 When using the notebook, you can use the [merge_weights](validation_benchmark/merge_weights.py) script to recreate the complete weight file. When putting the created weight file into the `model_file` folder, please rename it to `pytorch_model.bin`, and you’ll be able to easily run our test notebook.
 
-### How to use [merge_weights](validation_benchmark/merge_weights.py)
+### How to use [merge_weights](validation_benchmark/merge_params.py)
 
 
 usage: python merge_params.py [-h] --head_weights_path HEADS_WEIGHTS --output_path OUTPUT_PATH
