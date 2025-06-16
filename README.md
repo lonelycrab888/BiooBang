@@ -115,7 +115,7 @@ To use this notebook, you can download the data and our model weights from [Zeno
 You can find our test data in the `training_data` folder, and the fine-tuned model weights in the `finetuned_model` directory.
 We provide model checkpoints trained with three different random seeds.
 The [Zenodo](https://zenodo.org/records/14648464) only provides the weights of the prediction heads. 
-When using the notebook, you can use the [merge_weights](validation_benchmark/merge_weights.py) script to recreate the complete weight file. When putting the created weight file into the `model_file` folder, please rename it to `pytorch_model.bin`, and you’ll be able to easily run our test notebook.
+When using the notebook, you can use the [merge_weights](validation_benchmark/merge_params.py) script to recreate the complete weight file. When putting the created weight file into the `model_file` folder, please rename it to `pytorch_model.bin`, and you’ll be able to easily run our test notebook.
 
 ### How to use [merge_weights](validation_benchmark/merge_params.py)
 
