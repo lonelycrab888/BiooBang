@@ -120,7 +120,10 @@ When using the notebook, you can use the [merge_weights](validation_benchmark/me
 ### How to use [merge_weights](validation_benchmark/merge_params.py)
 
 
-usage: python merge_params.py [-h] --head_weights_path HEADS_WEIGHTS --output_path OUTPUT_PATH
+usage: 
+
+```bash
+python merge_params.py [-h] --head_weights_path HEADS_WEIGHTS --output_path OUTPUT_PATH
 
 Merge model weights script
 
@@ -131,7 +134,7 @@ options:
   --head_weights_path HEADS_WEIGHTS : the path to the prediction head weights file
 			
   --output_path OUTPUT_PATH : the path to save the merged weights file
-
+```
 
 ## CDS Denovo Generation
 
